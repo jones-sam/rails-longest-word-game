@@ -1,0 +1,21 @@
+<h1>Longest Word Game</h1>
+<h5>What is the longest word you can find in these letters?</h5>
+
+<div class="letters">
+    <% @letters.each do |letter| %>
+    <div class="letter-box">
+        <h3><%= letter %></h3>
+    </div>
+    <% end %>
+</div>
+
+
+<div class="d-flex justify-content-center">
+    <form class="form-inline" action="score" method="POST">
+        <input class="form-control" type="text" name="word">
+        <input class="btn btn-success ml-3" type="submit">
+        <%= hidden_field_tag :letters, @letters %>
+        <%= hidden_field_tag :start_time, @start_time %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </form>
+</div>
